@@ -34,8 +34,9 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   Future<void> signInWithGoogle() async {
     // GoogleSignIn をして得られた情報を Firebase と関連づけることをやっています。
-    final googleUser =
-        await GoogleSignIn(scopes: ['profile', 'email']).signIn();
+    final googleUser = await GoogleSignIn(
+      scopes: ['profile', 'email'],
+    ).signIn();
 
     final googleAuth = await googleUser?.authentication;
 
