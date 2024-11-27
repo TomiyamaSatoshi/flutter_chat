@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chat/chat_page.dart';
 import 'package:flutter_chat/firebase_options.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -59,6 +60,16 @@ class _SignInPageState extends State<SignInPage> {
             onPressed: () async {
               await signInWithGoogle();
               print(FirebaseAuth.instance.currentUser?.displayName);
+              print(FirebaseAuth.instance.currentUser?.email);
+
+              // ログインが成功したらChatPageに遷移する
+              if (!mounted) return;
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) {
+                  return const ChatPage();
+                }),
+                (route) => false,
+              );
             },
             child: const Text('GoogleSignIn')),
       ),
