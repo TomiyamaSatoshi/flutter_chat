@@ -18,10 +18,17 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(),
-      home: const SignInPage(),
-    );
+    if (FirebaseAuth.instance.currentUser == null) {
+      return MaterialApp(
+        theme: ThemeData(),
+        home: const SignInPage(),
+      );
+    } else {
+      return MaterialApp(
+        theme: ThemeData(),
+        home: const ChatPage(),
+      );
+    }
   }
 }
 
