@@ -44,75 +44,81 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('チャット'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const MyPage();
-                  },
-                ),
-              );
-            },
-            icon: const Icon(
-              Icons.home,
-              size: 32,
-            ),
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: StreamBuilder<QuerySnapshot<Post>>(
-              stream: postsReference.orderBy('createdAt').snapshots(),
-              builder: (context, snapshot) {
-                final docs = snapshot.data?.docs ?? [];
-                return ListView.builder(
-                    itemCount: docs.length,
-                    itemBuilder: (context, index) {
-                      final post = docs[index].data();
-                      return PostWidget(post: post);
-                    });
-              },
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextFormField(
-              // コントローラ
-              controller: controller,
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: Colors.amber),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(
-                    color: Colors.amber,
-                    width: 2,
+    return GestureDetector(
+      onTap: () => {
+        // キーボードを閉じたい時はこれを呼びます。
+        primaryFocus?.unfocus(),
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('チャット'),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const MyPage();
+                    },
                   ),
-                ),
-                fillColor: Colors.amber[50],
-                filled: true,
-                hintText: '投稿を入力',
-                prefixIcon: const Icon(
-                  Icons.search,
-                ),
-                border: const OutlineInputBorder(),
-              ),
-              onFieldSubmitted: (text) {
-                sendPost(text);
-                controller.clear();
+                );
               },
+              icon: const Icon(
+                Icons.home,
+                size: 32,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
+        body: Column(
+          children: [
+            Expanded(
+              child: StreamBuilder<QuerySnapshot<Post>>(
+                stream: postsReference.orderBy('createdAt').snapshots(),
+                builder: (context, snapshot) {
+                  final docs = snapshot.data?.docs ?? [];
+                  return ListView.builder(
+                      itemCount: docs.length,
+                      itemBuilder: (context, index) {
+                        final post = docs[index].data();
+                        return PostWidget(post: post);
+                      });
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(
+                // コントローラ
+                controller: controller,
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(color: Colors.amber),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(
+                      color: Colors.amber,
+                      width: 2,
+                    ),
+                  ),
+                  fillColor: Colors.amber[50],
+                  filled: true,
+                  hintText: '投稿を入力',
+                  prefixIcon: const Icon(
+                    Icons.search,
+                  ),
+                  border: const OutlineInputBorder(),
+                ),
+                onFieldSubmitted: (text) {
+                  sendPost(text);
+                  controller.clear();
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -192,11 +198,35 @@ class PostWidget extends StatelessWidget {
                       ),
                     ),
                     if (FirebaseAuth.instance.currentUser!.uid == post.posterId)
-                      IconButton(
-                        onPressed: () {
-                          post.reference.delete();
-                        },
-                        icon: const Icon(Icons.delete),
+                      Row(
+                        children: [
+                          IconButton(
+                              onPressed: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        content: TextFormField(
+                                          initialValue: post.text,
+                                          autofocus: true,
+                                          onFieldSubmitted: (newText) {
+                                            post.reference.update({
+                                              'text': newText,
+                                            });
+                                            Navigator.of(context).pop();
+                                          },
+                                        ),
+                                      );
+                                    });
+                              },
+                              icon: const Icon(Icons.edit)),
+                          IconButton(
+                            onPressed: () {
+                              post.reference.delete();
+                            },
+                            icon: const Icon(Icons.delete),
+                          ),
+                        ],
                       ),
                   ],
                 ),
