@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat/main.dart';
+import 'package:flutter_chat/pages/sign_in.dart';
+import 'package:flutter_chat/widgets/common_drawer.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class MyPage extends StatelessWidget {
@@ -68,6 +69,7 @@ class MyPage extends StatelessWidget {
           ],
         ),
       ),
+      drawer: const CommonDrawer(),
     );
   }
 }
