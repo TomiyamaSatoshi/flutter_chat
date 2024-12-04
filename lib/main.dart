@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat/pages/chat_page.dart';
 import 'package:flutter_chat/firebase_options.dart';
 import 'package:flutter_chat/pages/sign_in.dart';
+import 'package:flutter_chat/router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<void> main() async {
@@ -21,18 +22,17 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    if (FirebaseAuth.instance.currentUser == null) {
-      return MaterialApp(
-        theme: ThemeData(),
-        home: const SignInPage(),
-      );
-    } else {
-      return MaterialApp(
-        theme: ThemeData(),
-        home: const ChatPage(),
-      );
-    }
+    return MaterialApp.router(
+      routerDelegate: go_router.routerDelegate,
+      routeInformationParser: go_router.routeInformationParser,
+      routeInformationProvider: go_router.routeInformationProvider,
+      title: 'Flutter Practice',
+      theme: ThemeData(
+        primarySwatch: Colors.orange,
+      ),
+    );
   }
 }

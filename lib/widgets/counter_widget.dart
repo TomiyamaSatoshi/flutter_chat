@@ -3,6 +3,8 @@ import 'package:flutter_chat/providers/counter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CounterWidget extends ConsumerWidget {
+  const CounterWidget({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     int state = ref.watch(counterProvider);
