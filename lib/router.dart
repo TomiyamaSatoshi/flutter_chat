@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 
 final go_router = GoRouter(
   // アプリが起動した時
-  initialLocation: '/chat',
+  initialLocation: '/sign-in',
   // パスと画面の組み合わせ
   routes: [
     GoRoute(

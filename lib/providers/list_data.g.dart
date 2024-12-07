@@ -1,24 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'counter.dart';
+part of 'list_data.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$counterHash() => r'5f284817dd75d789514b3448c736350965ca7d9a';
+String _$listDataHash() => r'e3afe5ac5d4c5a5139bd6e369529b8a738960248';
 
-/// See also [Counter].
-@ProviderFor(Counter)
-final counterProvider = AutoDisposeNotifierProvider<Counter, int>.internal(
-  Counter.new,
-  name: r'counterProvider',
+/// See also [ListData].
+@ProviderFor(ListData)
+final listDataProvider = AutoDisposeNotifierProvider<ListData, List>.internal(
+  ListData.new,
+  name: r'listDataProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$counterHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$listDataHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$Counter = AutoDisposeNotifier<int>;
+typedef _$ListData = AutoDisposeNotifier<List>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

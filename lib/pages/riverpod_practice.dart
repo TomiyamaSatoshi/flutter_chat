@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/widgets/common_drawer.dart';
 import 'package:flutter_chat/widgets/counter_widget.dart';
+import 'package:flutter_chat/widgets/list_data_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RiverpodPractice extends ConsumerWidget {
@@ -13,15 +14,12 @@ class RiverpodPractice extends ConsumerWidget {
         title: const Text('Piverpod Practice'),
       ),
       drawer: const CommonDrawer(),
-      body: Center(
-        child: Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              CounterWidget(),
-            ],
-          ),
-        ),
+      body: const Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          CounterWidget(),
+          ListDataWidget(),
+        ],
       ),
     );
   }

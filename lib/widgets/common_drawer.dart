@@ -29,13 +29,13 @@ class CommonDrawer extends StatelessWidget {
           ListTile(
             title: const Text('My Page'),
             onTap: () {
-              context.push('my-page');
+              context.push('/my-page');
             },
           ),
           ListTile(
             title: const Text('Riverpod Practice'),
             onTap: () {
-              context.push('riverpod-practice');
+              context.push('/riverpod-practice');
             },
           ),
         ],
