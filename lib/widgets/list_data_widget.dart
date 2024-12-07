@@ -25,7 +25,7 @@ class ListDataWidget extends ConsumerWidget {
           ),
         ),
         SizedBox(
-          height: 200,
+          height: 250,
           child: ListView.builder(
               itemCount: state.length,
               itemBuilder: (_, index) {

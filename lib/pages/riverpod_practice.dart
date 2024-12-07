@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat/widgets/common_drawer.dart';
 import 'package:flutter_chat/widgets/counter_widget.dart';
 import 'package:flutter_chat/widgets/list_data_widget.dart';
+import 'package:flutter_chat/widgets/stream_data_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../widgets/async_value_widget.dart';
 
 class RiverpodPractice extends ConsumerWidget {
   const RiverpodPractice({super.key});
@@ -19,6 +22,8 @@ class RiverpodPractice extends ConsumerWidget {
         children: [
           CounterWidget(),
           ListDataWidget(),
+          AsyncValueWidget(),
+          StreamDataWidget(),
         ],
       ),
     );

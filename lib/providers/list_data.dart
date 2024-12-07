@@ -11,6 +11,5 @@ class ListData extends _$ListData {
 
   void incrementListData() {
     state = [...state, '追加データ'];
-    print(state);
   }
 }
