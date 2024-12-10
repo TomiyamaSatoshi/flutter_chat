@@ -43,12 +43,16 @@ dependencies:
   flutter_riverpod: ^2.6.1
   riverpod_annotation:
   go_router:
+  freezed_annotation:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner:
   riverpod_generator:
+  freezed:
+  json_serializable:
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -98,3 +102,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+  assets:
+    - lib/stub/

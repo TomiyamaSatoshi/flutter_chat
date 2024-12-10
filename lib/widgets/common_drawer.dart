@@ -38,6 +38,12 @@ class CommonDrawer extends StatelessWidget {
               context.push('/riverpod-practice');
             },
           ),
+          ListTile(
+            title: const Text('FreezedJsonPractice'),
+            onTap: () {
+              context.push('/freezed-json-practice');
+            },
+          )
         ],
       ),
     );

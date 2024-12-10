@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/pages/chat_page.dart';
+import 'package:flutter_chat/pages/freezed_json_practice.dart';
 import 'package:flutter_chat/pages/my_page.dart';
 import 'package:flutter_chat/pages/riverpod_practice.dart';
 import 'package:flutter_chat/pages/sign_in.dart';
@@ -35,6 +36,13 @@ final go_router = GoRouter(
           return MaterialPage(
               key: state.pageKey, child: const RiverpodPractice());
         }),
+    GoRoute(
+        path: '/freezed-json-practice',
+        name: 'FreezedJsonPractice',
+        pageBuilder: (context, state) {
+          return MaterialPage(
+              key: state.pageKey, child: const FreezedJsonPractice());
+        })
   ],
   // 遷移ページがないなどのエラーが発生した時に、このページに行く
   errorPageBuilder: (context, state) => MaterialPage(
