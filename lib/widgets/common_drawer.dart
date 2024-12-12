@@ -43,7 +43,19 @@ class CommonDrawer extends StatelessWidget {
             onTap: () {
               context.push('/freezed-json-practice');
             },
-          )
+          ),
+          ListTile(
+            title: const Text('HookWidgetPractice'),
+            onTap: () {
+              context.push('/hook-widget-practice');
+            },
+          ),
+          ListTile(
+            title: const Text('FocusPractice'),
+            onTap: () {
+              context.push('/focus-practice');
+            },
+          ),
         ],
       ),
     );

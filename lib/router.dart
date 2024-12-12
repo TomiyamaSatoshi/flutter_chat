@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/pages/chat_page.dart';
+import 'package:flutter_chat/pages/focus_practice.dart';
 import 'package:flutter_chat/pages/freezed_json_practice.dart';
+import 'package:flutter_chat/pages/hook_widget_practice.dart';
 import 'package:flutter_chat/pages/my_page.dart';
 import 'package:flutter_chat/pages/riverpod_practice.dart';
 import 'package:flutter_chat/pages/sign_in.dart';
@@ -12,37 +14,75 @@ final go_router = GoRouter(
   // パスと画面の組み合わせ
   routes: [
     GoRoute(
-        path: '/sign-in',
-        name: 'SignIn',
-        pageBuilder: (context, state) {
-          return MaterialPage(key: state.pageKey, child: const SignInPage());
-        }),
+      path: '/sign-in',
+      name: 'SignIn',
+      pageBuilder: (context, state) {
+        return MaterialPage(
+          key: state.pageKey,
+          child: const SignInPage(),
+        );
+      },
+    ),
     GoRoute(
-        path: '/chat',
-        name: 'Chat',
-        pageBuilder: (context, state) {
-          return MaterialPage(key: state.pageKey, child: const ChatPage());
-        }),
+      path: '/chat',
+      name: 'Chat',
+      pageBuilder: (context, state) {
+        return MaterialPage(
+          key: state.pageKey,
+          child: const ChatPage(),
+        );
+      },
+    ),
     GoRoute(
-        path: '/my-page',
-        name: 'MyPage',
-        pageBuilder: (context, state) {
-          return MaterialPage(key: state.pageKey, child: const MyPage());
-        }),
+      path: '/my-page',
+      name: 'MyPage',
+      pageBuilder: (context, state) {
+        return MaterialPage(
+          key: state.pageKey,
+          child: const MyPage(),
+        );
+      },
+    ),
     GoRoute(
-        path: '/riverpod-practice',
-        name: 'RiverpodPractice',
-        pageBuilder: (context, state) {
-          return MaterialPage(
-              key: state.pageKey, child: const RiverpodPractice());
-        }),
+      path: '/riverpod-practice',
+      name: 'RiverpodPractice',
+      pageBuilder: (context, state) {
+        return MaterialPage(
+          key: state.pageKey,
+          child: const RiverpodPractice(),
+        );
+      },
+    ),
     GoRoute(
-        path: '/freezed-json-practice',
-        name: 'FreezedJsonPractice',
-        pageBuilder: (context, state) {
-          return MaterialPage(
-              key: state.pageKey, child: const FreezedJsonPractice());
-        })
+      path: '/freezed-json-practice',
+      name: 'FreezedJsonPractice',
+      pageBuilder: (context, state) {
+        return MaterialPage(
+          key: state.pageKey,
+          child: const FreezedJsonPractice(),
+        );
+      },
+    ),
+    GoRoute(
+      path: '/hook-widget-practice',
+      name: 'HookWidgetPractice',
+      pageBuilder: (context, state) {
+        return MaterialPage(
+          key: state.pageKey,
+          child: const HookWidgetPractice(),
+        );
+      },
+    ),
+    GoRoute(
+      path: '/focus-practice',
+      name: 'FocusPractice',
+      pageBuilder: (context, state) {
+        return MaterialPage(
+          key: state.pageKey,
+          child: const FocusPractice(),
+        );
+      },
+    ),
   ],
   // 遷移ページがないなどのエラーが発生した時に、このページに行く
   errorPageBuilder: (context, state) => MaterialPage(
