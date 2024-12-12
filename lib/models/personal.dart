@@ -1,10 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'personal.freezed.dart';
 
 part 'personal.g.dart';
 
 @freezed
+@riverpod
 class Personal with _$Personal {
   factory Personal({
     required int id,

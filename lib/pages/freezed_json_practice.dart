@@ -21,19 +21,46 @@ class FreezedJsonPractice extends ConsumerWidget {
         title: const Text('FreezedJsonPractice'),
       ),
       drawer: const CommonDrawer(),
-      body: ListView.builder(
-        itemCount: personalList.length,
-        itemBuilder: (_, int index) {
-          return Row(
-            children: [
-              Text(personalList[index].name),
-              Text(personalList[index].age.toString()),
-              Text(personalList[index].sex),
-              Text(personalList[index].birthday),
-              Text(personalList[index].occupation),
+      body: SingleChildScrollView(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: DataTable(
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 2,
+              ),
+            ),
+            columns: const <DataColumn>[
+              DataColumn(
+                label: Text('Name'),
+              ),
+              DataColumn(
+                label: Text('Age'),
+              ),
+              DataColumn(
+                label: Text('Sex'),
+              ),
+              DataColumn(
+                label: Text('Birthday'),
+              ),
+              DataColumn(
+                label: Text('Occupation'),
+              ),
             ],
-          );
-        },
+            rows: List<DataRow>.generate(
+              personalList.length,
+              (index) => DataRow(
+                cells: [
+                  DataCell(Text(personalList[index].name)),
+                  DataCell(Text(personalList[index].age.toString())),
+                  DataCell(Text(personalList[index].sex)),
+                  DataCell(Text(personalList[index].birthday)),
+                  DataCell(Text(personalList[index].occupation)),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
