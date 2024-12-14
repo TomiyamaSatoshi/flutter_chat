@@ -9,32 +9,35 @@ class ListDataWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(listDataProvider);
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        ListTile(
-          title: const Text('Multiple Data'),
-          subtitle: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                final notifier = ref.read(listDataProvider.notifier);
-                notifier.incrementListData();
-              },
-              child: const Text('データを追加する'),
+    return Padding(
+      padding: const EdgeInsets.only(top: 8, bottom: 8),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ListTile(
+            title: const Text('Multiple Data'),
+            subtitle: Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  final notifier = ref.read(listDataProvider.notifier);
+                  notifier.incrementListData();
+                },
+                child: const Text('データを追加する'),
+              ),
             ),
           ),
-        ),
-        SizedBox(
-          height: 250,
-          child: ListView.builder(
-              itemCount: state.length,
-              itemBuilder: (_, index) {
-                return Card(
-                  child: Text(state[index] + '${index}'),
-                );
-              }),
-        ),
-      ],
+          SizedBox(
+            height: 250,
+            child: ListView.builder(
+                itemCount: state.length,
+                itemBuilder: (_, index) {
+                  return Card(
+                    child: Text(state[index] + '${index}'),
+                  );
+                }),
+          ),
+        ],
+      ),
     );
   }
 }

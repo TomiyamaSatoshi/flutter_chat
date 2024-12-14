@@ -6,7 +6,6 @@ part 'personal.freezed.dart';
 part 'personal.g.dart';
 
 @freezed
-@riverpod
 class Personal with _$Personal {
   factory Personal({
     required int id,

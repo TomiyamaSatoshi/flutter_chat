@@ -14,25 +14,28 @@ class AsyncValueWidget extends ConsumerWidget {
       data: (d) => Text(d),
     );
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        ListTile(
-          title: const Text('Async Data'),
-          subtitle: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                final notifier = ref.read(asyncDataProvider.notifier);
-                notifier.updateAsyncData();
-              },
-              child: const Text('データ問い合わせ'),
+    return Padding(
+      padding: const EdgeInsets.only(top: 8, bottom: 8),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ListTile(
+            title: const Text('Async Data'),
+            subtitle: Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  final notifier = ref.read(asyncDataProvider.notifier);
+                  notifier.updateAsyncData();
+                },
+                child: const Text('データ問い合わせ'),
+              ),
             ),
           ),
-        ),
-        Center(
-          child: state,
-        )
-      ],
+          Center(
+            child: state,
+          )
+        ],
+      ),
     );
   }
 }

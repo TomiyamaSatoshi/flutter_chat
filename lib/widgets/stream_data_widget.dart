@@ -14,25 +14,28 @@ class StreamDataWidget extends ConsumerWidget {
       data: (d) => Text(d),
     );
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        ListTile(
-          title: const Text('Stream Data'),
-          subtitle: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                final notifier = ref.read(streamDataProvider.notifier);
-                notifier.updateStreamData();
-              },
-              child: const Text('Streamデータを受信する'),
+    return Padding(
+      padding: const EdgeInsets.only(top: 8, bottom: 8),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ListTile(
+            title: const Text('Stream Data'),
+            subtitle: Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  final notifier = ref.read(streamDataProvider.notifier);
+                  notifier.updateStreamData();
+                },
+                child: const Text('Streamデータを受信する'),
+              ),
             ),
           ),
-        ),
-        Center(
-          child: state,
-        ),
-      ],
+          Center(
+            child: state,
+          ),
+        ],
+      ),
     );
   }
 }

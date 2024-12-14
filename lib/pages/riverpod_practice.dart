@@ -17,14 +17,16 @@ class RiverpodPractice extends ConsumerWidget {
         title: const Text('Piverpod Practice'),
       ),
       drawer: const CommonDrawer(),
-      body: const Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          CounterWidget(),
-          ListDataWidget(),
-          AsyncValueWidget(),
-          StreamDataWidget(),
-        ],
+      body: const SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            CounterWidget(),
+            ListDataWidget(),
+            AsyncValueWidget(),
+            StreamDataWidget(),
+          ],
+        ),
       ),
     );
   }
