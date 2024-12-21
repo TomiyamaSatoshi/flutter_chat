@@ -1,9 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat/pages/chat_page.dart';
 import 'package:flutter_chat/firebase_options.dart';
-import 'package:flutter_chat/pages/sign_in.dart';
 import 'package:flutter_chat/router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

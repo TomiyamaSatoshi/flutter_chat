@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/pages/chat_page.dart';
-import 'package:flutter_chat/pages/focus_practice.dart';
 import 'package:flutter_chat/pages/freezed_json_practice.dart';
 import 'package:flutter_chat/pages/hook_widget_practice.dart';
 import 'package:flutter_chat/pages/my_page.dart';
 import 'package:flutter_chat/pages/riverpod_practice.dart';
 import 'package:flutter_chat/pages/sign_in.dart';
+import 'package:flutter_chat/pages/trace_layout.dart';
 import 'package:go_router/go_router.dart';
 
 final go_router = GoRouter(
@@ -74,12 +74,12 @@ final go_router = GoRouter(
       },
     ),
     GoRoute(
-      path: '/focus-practice',
-      name: 'FocusPractice',
+      path: '/trace-layout',
+      name: 'TraceLayout',
       pageBuilder: (context, state) {
         return MaterialPage(
           key: state.pageKey,
-          child: const FocusPractice(),
+          child: const TraceLayout(),
         );
       },
     ),

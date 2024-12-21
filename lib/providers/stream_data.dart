@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:flutter_chat/widgets/async_value_widget.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'stream_data.g.dart';

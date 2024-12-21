@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat/pages/chat_page.dart';
-import 'package:flutter_chat/pages/my_page.dart';
-import 'package:flutter_chat/pages/riverpod_practice.dart';
-import 'package:flutter_chat/pages/sign_in.dart';
-import 'package:flutter_chat/router.dart';
 import 'package:go_router/go_router.dart';
 
 class CommonDrawer extends StatelessWidget {
@@ -51,9 +46,9 @@ class CommonDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('FocusPractice'),
+            title: const Text('TraceLayout'),
             onTap: () {
-              context.push('/focus-practice');
+              context.push('/trace-layout');
             },
           ),
         ],
